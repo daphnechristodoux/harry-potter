@@ -1,0 +1,39 @@
+<!-- Programme simple, qui va chercher 2 informations dans l'API publique Pokemon indiquée dans le cours -->
+<!-- Recherche par numéro, ou oar nom, et on récupère le nom et l'image du pokemon-->
+<!-- Recopie des programmes vus en cours -->
+<!-- IL n'y a pas de gestion de l'erreur "numéro de pokemon inexistant" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affichage Pokmon</title>
+</head>
+<body>
+  <label for="pokemonInput">Saisir un nom ou numéro de Pokemon :</label>
+  <input type="text" id="pokemonInput" placeholder="E.g., pikachu">
+  <button onclick="fetchAndDisplayPokemon()">Chercher Pokemon</button>
+
+  <div id="pokemon"></div>
+
+  <script>
+    async function fetchPokemon(pokemon) {
+      return fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon)
+        .then((response) => response.json());
+    }
+
+    async function displayPokemon(pokemon) {
+      const data = await fetchPokemon(pokemon);
+      document.getElementById("pokemon").innerHTML = `
+        <h1>${data.name}</h1>
+        <img src="${data.sprites.front_default}" alt="${data.name}" />
+      `;
+    }
+
+    function fetchAndDisplayPokemon() {
+      const pokemonInput = document.getElementById('pokemonInput').value;
+      displayPokemon(pokemonInput);
+    }
+  </script>
+</body>
+</html>

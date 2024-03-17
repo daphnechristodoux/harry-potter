@@ -1,0 +1,69 @@
+<!-- Programme qui affiche des informations depuis l'API The Movie Database -->
+<!-- Nécessite l'utilisation d'une clé privée, que j'ai obtenue en m'inscrivant -->
+<!-- Recopie des fonctions vues en cours, avec le paramètre de langue : fr-FR pour afficher les informations en français -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base de données de films</title>
+  <style>
+    img {
+      max-width: 300px; 
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<label for="movieNumber">Saisir numéro du film :</label>
+<input type="number" id="movieNumber" placeholder="Saisir numéro du film">
+<button onclick="searchMovie()">Rechercher par numéro</button>
+
+<div id="movie-info"></div>
+
+<script>
+  async function fetchMovie(movieNumber) {
+    const apiKey = 'f6d15afe8e409248cbf73aa541b3b5e8';
+    const apiUrl = `https://api.themoviedb.org/3/movie/${movieNumber}?api_key=${apiKey}&language=fr-FR`;
+
+    const response = await fetch(apiUrl);
+    return response.json();
+  }
+
+  async function displayMovie(movieNumber) {
+    try {
+      const data = await fetchMovie(movieNumber);
+      const movieInfo = document.getElementById("movie-info");
+
+      if (data.title) {
+        movieInfo.innerHTML = `
+          <h1>${data.title}</h1>
+          <img src="https://image.tmdb.org/t/p/w500${data.poster_path}" alt="${data.title}" />
+          <p><strong>Date de sortie:</strong> ${data.release_date}</p>
+          <p><strong>Langue:</strong> ${data.original_language}</p>
+          <p><strong>Résumé:</strong> ${data.overview}</p>
+        `;
+      } else {
+        movieInfo.innerHTML = '<p>Il n y a pas de film avec ce numéro</p>'
+      }
+    } catch (error) {
+      console.error('erreur lors de la recherche de film', error.message);
+    }
+  }
+
+  function searchMovie() {
+    const movieNumberInput = document.getElementById('movieNumber');
+    const movieNumber = movieNumberInput.value;
+
+    if (!movieNumber) {
+      alert('Please enter a movie number');
+      return;
+    }
+
+    displayMovie(movieNumber);
+  }
+</script>
+
+</body>
+</html>

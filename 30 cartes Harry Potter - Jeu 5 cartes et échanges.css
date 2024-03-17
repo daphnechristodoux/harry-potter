@@ -1,0 +1,78 @@
+/* Choix d'une image pour le fond d'écran, image des maisons Harry Potter, trouvée sur internet */
+body {
+    background-image: url('Maisons-Harry-Potter.webp'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    display: inline-block;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 0 0 auto;
+  }
+  
+  .card img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  #characters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .card h2 {
+    margin-bottom: 5px;
+  }
+  
+  /* styles pour la burger box */
+  .burger-menu {
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+  }
+  
+  /* Je choisis une couleur visible pour les 3 petites barres horizontales de la burger box */
+  .bar {
+    width: 25px;
+    height: 5px;
+    background-color: darkred;
+    margin: 5px 0;
+  }
+  
+  .menu-container {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    z-index: 998;
+  }
+  
+  .menu-item {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  .menu-item:hover {
+    color: orangered;
+  }
+  

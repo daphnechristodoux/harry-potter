@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartes Harry Potter</title>
+  <link rel="stylesheet" href="30 cartes Harry Potter - Jeu 5 cartes et échanges.css">
+</head>
+<body>
+
+<!-- Les fichiers css et js associés portent le même nom que le fichier html, et ne seront pas partagés -->
+
+<!--
+  Ci-dessous le texte qui apparaitra en haut de page, avec les instructions, notamment celle d'aller
+  dans la burger box pour trouver les menus
+  Et de commencer par tirer au sort les 5 cartes du joueur
+-->
+  <h1 style="margin-left: 60px;">Cartes Harry Potter</h1>
+  <h2 style="margin-left: 60px; color: rgb(255, 50, 0);">(les menus sont dans la burger box en haut à gauche. clicker pour l afficher, re-clicker pour la faire disparaitre)</h2>
+  <h3 style="margin-left: 60px; color: rgb(255, 50, 0);">(commencez par tirer un jeu de 5 cartes aléatoires pour le joueur, puis tentez un échange de carte, qui pourra être accepté ou refusé par le système. Puis à la proposition de carte que vous recevrez, vous pourrez de votre coté l'accepter, ou pas)</h3>
+
+  
+  <div id="characters"></div>
+
+  <!-- Ci-dessous la burger box qui est constituée de 3 petites barres horizontales -->
+  <div class="burger-menu" id="burgerMenu" onclick="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <!-- Menu de la burger box -->
+  <div class="menu-container" id="menuContainer">
+    <a href="#" class="menu-item" onclick="tirerCartesJoueur()">Tirer 5 cartes pour le Joueur</a>
+    <a href="#" class="menu-item" onclick="afficherCartesJoueur(jeuJoueur)">Afficher les cartes du Joueur</a>
+    <a href="#" class="menu-item" onclick="echangerCarte()">Échange de carte</a>
+    <a href="#" class="menu-item" onclick="afficherToutesLesCartes()">Afficher toutes les cartes</a>
+  </div>
+
+  <script src="30 cartes Harry Potter - Jeu 5 cartes et échanges.js"></script>
+</body>
+</html>

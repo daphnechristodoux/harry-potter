@@ -1,0 +1,9 @@
+lien pour le site de cartes Harry Potter: https://github.com/daphnechristodoux/harry-potter.git
+
+
+Reponses au qcm :
+Q1 : A (Get)
+Q2 : A (Patch)
+Q3 : D (Post)
+Q4 : B (Get)
+Q5 : D (Delete)
